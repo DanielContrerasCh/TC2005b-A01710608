@@ -38,14 +38,14 @@ h1{
     margin-bottom: 20px;
 }
 
-#preguntas{
+.preguntas{
     background-color: #bde0fe;
     padding: 20px;
     border-radius: 30px;
     margin-bottom: 20px;
 }
 
-#referencias{
+.referencias{
     background-color: #a2d2ff;
     padding: 20px;
     border-radius: 30px;
