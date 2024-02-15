@@ -1,3 +1,3 @@
 function greet(){
-    alert("Gracias! juguemos algún día :)");
+    alert("¡Gracias! juguemos algún día :)");
 }

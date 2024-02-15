@@ -5,3 +5,68 @@ img{
 footer{
     text-align: center;
 }
+
+body{
+    margin: 0 auto;
+    max-width: 50em;
+    font-family: "Helvetica", "Arial", sans-serif;
+    line-height: 1.5;
+    padding: 4em 1em;
+}
+
+h1{
+    display: inline block;
+    color: white;
+    background: #272343; 
+    text-align: center;
+}
+
+.center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.center-txt{
+    text-align: center;
+}
+
+#content{
+    background-color: #e3f6f5;
+    padding: 20px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
+
+#preguntas{
+    background-color: #bde0fe;
+    padding: 20px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
+
+#referencias{
+    background-color: #a2d2ff;
+    padding: 20px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
+
+#git{
+    display: inline-block;
+}
+
+#redes{
+    width: 500px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#github{
+    width: 300px;
+    float:left; 
+}
+
+#linkedin{
+    overflow: hidden
+}
