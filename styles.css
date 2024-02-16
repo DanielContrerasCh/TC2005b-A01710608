@@ -70,3 +70,44 @@ h1{
 #linkedin{
     overflow: hidden
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+    background-color: #f2f2f2;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+
+  .buttonContainer{
+    position: relative;
+    margin: 0 auto ;
+    padding: 0 0 50px 0; 
+    border-radius:8px;
+    text-align: center;
+    width: 50%;
+}
+
+.buttonContainer button{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 5px;
+    width: 50%;
+    background-color: #bfd9ec;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 12px;
+    border: none;
+    transition: 1s all;
+    cursor: pointer;
+    display: block;
+}

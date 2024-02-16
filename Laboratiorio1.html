@@ -7,7 +7,7 @@
         Laboratorio 1
     </title>
 
-    <link rel="stylesheet" href="styles_min.css"> 
+    <link rel="stylesheet" href="styles.css"> 
 </head>
 
 <body>
@@ -351,13 +351,13 @@
         </ul>
     </div>  
 
-    <h1 class="center-txt">
+    <h1>
         Laboratorio 3: CSS
     </h1>
 
     <div class="preguntas">
         <h2>
-            Preguntas a responder.
+            Preguntas a responder
         </h2>
 
         <ul>
@@ -414,8 +414,141 @@
         </ul>
     </div>
 
+    <div>
+        <h1>
+            Laboratorio 4: Fundamentos de Javascript
+        </h1>
+
+        <div class="buttonContainer">
+            <button onclick="iniciaFunc()">Haz click aquí para ir a los ejercicios</button>  
+        </div>
+        
+        <div class="preguntas">
+            <h2>
+                Preguntas a responder
+            </h2>
+            <ul>
+                <li><strong>¿Qué diferencias y semejanzas hay entre Java y JavaScript?</strong>
+                    <table>
+                        <thead>
+                            <tr><th>Java</th><th>Javascript</th></tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Compilado</td>
+                                <td>Interpretado</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Lenguaje de programación orientado a objetos puros</td>
+                                <td>Puede emular la programación orientada a objetos</td>
+                            </tr>
+
+                            <tr>
+                                <td>El control lo tiene Oracle</td>
+                                <td>Gestionado por ECMAScript</td>
+                            </tr>
+                            <tr>
+                                <td>Se depura en dos fases</td>
+                                <td>Se depura en una fase</td>
+                            </tr>
+                            <tr>
+                                <td>Fuertemente tipado</td>
+                                <td>Es débilmente tipado</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </li>
+    
+                <li><strong>¿Qué métodos tiene el objeto Date? (Menciona al menos 5*)</strong>
+                    <p>
+                        -getMonth(): Devuelve el número del mes del 0 (Enero) al 11 (Diciembre).
+                    </p>
+
+                    <p>
+                        -getDate(): Devuelve el día del mes.
+                    </p>
+
+                    <p>
+                        -getDay(): Devuelve el día de la semana.
+                    </p>
+ 
+                    <p>
+                        -getHours(): Devuelve la hora actual.
+                    </p>
+                    
+                    <p>
+                        -getMinutes(): Devuelve los minutos actuales.
+                    </p>
+                </li>
+
+                <li><strong>¿Qué métodos tienen los arreglos? (Menciona al menos 5*)</strong>
+                    <p>
+                        -push(): Inserta un elemento al final del arreglo.
+                    </p>
+
+                    <p>
+                        -unshift(): Inserta un elemento al inicio del arreglo.
+                    </p>
+
+                    <p>
+                       -pop(): Remueve un elemento del principio del arreglo. 
+                    </p>
+
+                    <p>
+                        -slice(): Crea una copia sombra del arreglo.
+                    </p>
+
+                    <p>
+                        -length: Determina el tamaño del arreglo.
+                    </p>
+                </li>
+
+                <li><strong>¿Cómo se declara una variable con alcance local dentro de una función?</strong>
+                    <p>
+                        Se utiliza let, pues su alcance es sólo dentro de las llaves de una función.
+                    </p>
+                </li>
+
+                <li><strong>¿Qué implicaciones tiene utilizar variables globales dentro de funciones?</strong>
+                    <p>
+                        Su uso puede producir efectos colaterales, al producir alteraciones no
+                        previstas de su valor en una parte del programa que afectan a su uso en otra
+                        zona.
+                    </p>
+                </li>
+            </ul>
+        </div>  
+        
+        <div class="referencias">
+            <h3>
+                Referencias:
+            </h3>
+            <ul>
+                <li>
+                    Digital Learning. (2016, March 9). Métodos del objeto Date | Digital Learning. 
+                    https://www.digitallearning.es/intro-programacion-js/metodos-date.html
+                </li>
+    
+                <li>
+                    Escuela de Ingenierías Industriales. (2020). Ámbito de las variables — 
+                    Fundamentos de Programación en C++. Www2.Eii.uva.es. 
+                    https://www2.eii.uva.es/fund_inf/cpp/temas/2_tipos_variables/ambito_variables.html
+                </li>
+    
+                <li>
+                    Zubikarai, S. (2022, January 12). Manual de arreglos en JavaScript: 
+                    Métodos de arreglos de JS explicados con ejemplos. FreeCodeCamp.org. 
+                    https://www.freecodecamp.org/espanol/news/el-manual-de-arreglos-en-javascript/
+                </li>
+            </ul>      
+        </div>
+    </div>
+
     <footer>
         <p> Hecho en <a href="https://code.visualstudio.com">Visual Studio Code</a>  </p> 
     </footer>
+    
     <script src="script.js"></script>
 </body> 
