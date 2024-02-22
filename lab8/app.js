@@ -12,7 +12,7 @@ function prom(arr) {
 
 function wr(str){
     const filesystem = require('fs');
-    filesystem.writeFileSync('ej.txt.txt', str);
+    filesystem.writeFileSync('ej.txt', str);
 }
 
 function fibonacci(num){
