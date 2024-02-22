@@ -1,43 +1,12 @@
-const originalButton = document.getElementById("item1");
-let cant = 1;
+const confirmaBoton = document.getElementById("confirmar");
 const precioSandalias = 4;
 const precioCoqutea = 400;
 const precioYeezy = 800;
-
-function seleccionaUnits() {
-    originalButton.parentNode.innerHTML = `
-    <div class="field is-grouped">
-      <p class="control">
-        <button onclick="decremento()" id="menos" class="button is-danger is-small" disabled>
-        -
-        </button>
-      </p>
-      <p id="cantidad" class="control">
-      1
-      </p>
-      <p class="control">
-        <button onclick="incremento()" id="mas" class="button is-link is-small">
-        +
-        </button>
-      </p>
-    </div>
-    
-    <div class="media-content">
-    <div class="media-left">
-        <button id="confirmar" class="button is-primary">
-            <strong>Confirmar</strong>
-        </button>
-    </div>
-</div>
-  `;
-  
-  const botonConfirmar = document.getElementById("confirmar");
-  botonConfirmar.addEventListener("click", agregarAlCarrito);
-}
+let cant = 1;
 
 function incremento() {
   cant = cant + 1
-  document.getElementById("cantidad").innerText = cant;
+  document.getElementById("cantidad1").innerText = cant;
   let botonmenos = document.getElementById("menos");
 
   if(cant != 1){
@@ -48,7 +17,7 @@ function incremento() {
 function decremento() {
 
   cant = cant - 1;
-  document.getElementById("cantidad").innerText = cant;
+  document.getElementById("cantidad1").innerText = cant;
   let botonmenos = document.getElementById("menos");
 
   if(cant == 1){
@@ -57,32 +26,18 @@ function decremento() {
 }
 
 function agregarAlCarrito() {
+  const cont1 = document.getElementById("cantidad1");
+  const quantSand = parseInt(cont1.innerText);
+  const escribeCantidad = document.getElementById("item1");
+  const escribePrecio = document.getElementById("precio1");
 
-  const nombreProducto = document.getElementById("producto1").textContent;
-  const precioProducto = document.getElementById("precio1").textContent;
+  let precio = precioSandalias * quantSand;
+  console.log(precio);
+  escribeCantidad.textContent = "Cantidad: " + quantSand;
+  escribePrecio.textContent = "Precio: $" + precio + ".00 MXN";
 
-
-  const cantidadSeleccionada = document.getElementById("cantidad").textContent;
-
-
-  const nuevoDivisor = document.createElement("hr")
-  nuevoDivisor = document.classList.add("dropdown-divider")
-  const nuevoItem = document.createElement("div");
-  nuevoItem.classList.add("dropdown-item");
-  nuevoItem.innerHTML = `
-    <p>${nombreProducto}</p>
-    <p>Cantidad: ${cantidadSeleccionada}</p>
-    <p>Precio: $${precioProducto}</p>
-  `;
-  const contenedorMenu = document.getElementById("carrito");
-  contenedorMenu.appendChild(nuevoItem);
-
-  alert("¡Producto agregado al carrito!");
 }
 
-
-
-
-originalButton.addEventListener('click', seleccionaUnits);
+confirmaBoton.addEventListener('click', agregarAlCarrito);
 
 

@@ -25,7 +25,7 @@
             </div>
           
               <div class="navbar-end">
-                <div class="navbar-item">
+                <div class="navbar-item mr-6">
                     <div class="dropdown is-hoverable">
                         <div class="dropdown-trigger">
                           <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
@@ -37,11 +37,24 @@
                         </div>
                         <div class="dropdown-menu pr-6" id="dropdown-menu2" role="menu">
                           <div id="carrito" class="dropdown-content mgr-right">
-
+                            <div class="dropdown-item">
+                              <p>Sandalias de Jesús</p>
+                              <p id="item1" class="my-4 px-4"></p>
+                              <p id="precio1" class="my-4 px-4"></p>
                             </div>
+                            <hr class="dropdown-divider">
+                            <div class="dropdown-item">
+                              <p>Coqueta y audaz</p>
+                            </div>
+                            <hr class="dropdown-divider">
+                            <div class="dropdown-item">
+                              <p>Yeezy pods</p>
+                            </div>
+                          </div>
                           </div>
                         </div>
                       </div>
+                </div>
                 </div>
               </div>
           </nav>
@@ -60,15 +73,34 @@
                             <div class="card-content">
                               <div class="media">
                                 <div class="media-left">
-                                    <div id="item1" class="buttons">
-                                        <a class="button is-primary">
-                                          <strong>Agregar al carrito</strong>
-                                        </a>
+                                    <div class="buttons">
+                                      <div class="field is-grouped">
+                                        <p class="control">
+                                          <button onclick="decremento()" id="menos" class="button is-danger is-small" disabled>
+                                          -
+                                          </button>
+                                        </p>
+                                        <p id="cantidad1" class="control">
+                                        1
+                                        </p>
+                                        <p class="control">
+                                          <button onclick="incremento()" id="mas" class="button is-link is-small">
+                                          +
+                                          </button>
+                                        </p>
+                                        <div class="media-content">
+                                          <div class="media-left">
+                                              <button id="confirmar" class="button is-primary">
+                                                  <strong>Confirmar</strong>
+                                              </button>
+                                          </div>
+                                        </div>
                                       </div>
+                                    </div>
                                 </div>
                                 <div class="media-content">
                                   <p id="producto1" class="title is-4">Sandalias de Jesús</p>
-                                  <p id="precio1" class="subtitle is-6">$4 MXN</p>
+                                  <p class="subtitle is-6">$4 MXN</p>
                                 </div>
                               </div>
                             </div>
@@ -85,22 +117,35 @@
                             <div class="card-content">
                               <div class="media">
                                 <div class="media-left">
-                                  <figure class="image is-48x48">
-                                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                                  </figure>
+                                  <div class="buttons">
+                                    <div class="field is-grouped">
+                                      <p class="control">
+                                        <button onclick="decremento()" id="menos" class="button is-danger is-small" disabled>
+                                        -
+                                        </button>
+                                      </p>
+                                      <p id="cantidad1" class="control">
+                                      1
+                                      </p>
+                                      <p class="control">
+                                        <button onclick="incremento()" id="mas" class="button is-link is-small">
+                                        +
+                                        </button>
+                                      </p>
+                                      <div class="media-content">
+                                        <div class="media-left">
+                                            <button id="confirmar" class="button is-primary">
+                                                <strong>Confirmar</strong>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    </div>
                                 </div>
                                 <div class="media-content">
                                   <p class="title is-4">Coqueta y Audaz - Limited</p>
                                   <p class="subtitle is-6">$400 MXN</p>
                                 </div>
-                              </div>
-                          
-                              <div class="content">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                                <a href="#">#css</a> <a href="#">#responsive</a>
-                                <br>
-                                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
                               </div>
                             </div>
                           </div>
@@ -116,22 +161,35 @@
                             <div class="card-content">
                               <div class="media">
                                 <div class="media-left">
-                                  <figure class="image is-48x48">
-                                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                                  </figure>
+                                  <div class="buttons">
+                                    <div class="field is-grouped">
+                                      <p class="control">
+                                        <button onclick="decremento()" id="menos" class="button is-danger is-small" disabled>
+                                        -
+                                        </button>
+                                      </p>
+                                      <p id="cantidad1" class="control">
+                                      1
+                                      </p>
+                                      <p class="control">
+                                        <button onclick="incremento()" id="mas" class="button is-link is-small">
+                                        +
+                                        </button>
+                                      </p>
+                                      <div class="media-content">
+                                        <div class="media-left">
+                                            <button id="confirmar" class="button is-primary">
+                                                <strong>Confirmar</strong>
+                                            </button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
                                 </div>
                                 <div class="media-content">
                                   <p class="title is-4">Yeezy pods</p>
                                   <p class="subtitle is-6">$800 MXN</p>
                                 </div>
-                              </div>
-                          
-                              <div class="content">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                                <a href="#">#css</a> <a href="#">#responsive</a>
-                                <br>
-                                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
                               </div>
                             </div>
                           </div>
