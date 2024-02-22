@@ -1,0 +1,46 @@
+.card {
+  margin: 20px;
+  width: 20rem;
+}
+
+.card img {
+  width: 18rem;
+  height: 18rem;
+}
+
+#item-cards {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.counter-buy {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.counter-buy button {
+  width: auto;
+  height: auto;
+  background-color: #f8f9fa;
+  color: black;
+  border-color: #f8f9fa;
+}
+
+.counter-buy input {
+  width: 50px;
+  outline: none;
+  border: 0.1px solid #ccc;
+  border-radius: 9px;
+  background-color: #f8f9fa;
+}
+
+.cart-total svg {
+  margin-left: 15px;
+}
+
+.total p {
+  margin: 0;
+  font-size: 15px;
+}
