@@ -2,42 +2,60 @@ const confirmaBoton = document.getElementById("confirmar");
 const precioSandalias = 4;
 const precioCoqutea = 400;
 const precioYeezy = 800;
-let cant = 1;
+let totalFinal = 0;
 
-function incremento() {
+function incremento(itemId) {
+  let cantElement = document.getElementById("cantidad" + itemId);
+  let cant = parseInt(cantElement.innerText);
   cant = cant + 1
-  document.getElementById("cantidad1").innerText = cant;
-  let botonmenos = document.getElementById("menos");
+  cantElement.innerText = cant;
+
+  let botonmenos = document.getElementById("menos" + itemId);
 
   if(cant != 1){
       botonmenos.removeAttribute("disabled");
   }
 }
 
-function decremento() {
-
+function decremento(itemId) {
+  let cantElement = document.getElementById("cantidad" + itemId);
+  let cant = parseInt(cantElement.innerText);
   cant = cant - 1;
-  document.getElementById("cantidad1").innerText = cant;
-  let botonmenos = document.getElementById("menos");
+  cantElement.innerText = cant;
 
-  if(cant == 1){
-      botonmenos.setAttribute('disabled', '');
+  let botonMenos = document.getElementById("menos" + itemId);
+
+  if (cant === 1) {
+    botonMenos.setAttribute("disabled", "");
   }
 }
 
-function agregarAlCarrito() {
-  const cont1 = document.getElementById("cantidad1");
-  const quantSand = parseInt(cont1.innerText);
-  const escribeCantidad = document.getElementById("item1");
-  const escribePrecio = document.getElementById("precio1");
 
-  let precio = precioSandalias * quantSand;
-  console.log(precio);
-  escribeCantidad.textContent = "Cantidad: " + quantSand;
-  escribePrecio.textContent = "Precio: $" + precio + ".00 MXN";
 
+function total(precioTotal){
+  totalFinal = totalFinal + precioTotal;
+  let contTotal = document.getElementById("total");
+  contTotal.textContent = "$" + totalFinal + ".00 MXN"
 }
 
-confirmaBoton.addEventListener('click', agregarAlCarrito);
+function agregarAlCarrito(itemId, precio) {
+  let contElement = document.getElementById("cantidad" + itemId);
+  let quant = parseInt(contElement.innerText);
+  let escribeCantidad = document.getElementById("item" + itemId);
+  let escribePrecio = document.getElementById("precio" + itemId);
 
+  let precioTotal = precio * quant;
+  escribeCantidad.textContent = "Cantidad: " + quant;
+  escribePrecio.textContent = "Precio: $" + precioTotal + ".00 MXN";
+  total(precioTotal);
+}
 
+document.getElementById("confirmar1").addEventListener("click", function() {
+  agregarAlCarrito(1, precioSandalias);
+});
+document.getElementById("confirmar2").addEventListener("click", function() {
+  agregarAlCarrito(2, precioCoqutea);
+});
+document.getElementById("confirmar3").addEventListener("click", function() {
+  agregarAlCarrito(3, precioYeezy);
+});
