@@ -32,6 +32,10 @@ const header = `
                     <a class="navbar-item" href="/armar">
                         Arma tu propio top
                     </a>
+
+                    <a class="navbar-item" href="/error">
+                        Error 404
+                    </a>
                 </div>
             </div>
         </nav>
