@@ -1,0 +1,25 @@
+{
+  "name": "lab11",
+  "version": "1.0.0",
+  "description": "Laboratorio 11 - tc2005b/A01710608",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielContrerasCh/TC2005b-A01710608.git"
+  },
+  "keywords": [
+    "tc2005b"
+  ],
+  "author": "Daniel Contreras",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DanielContrerasCh/TC2005b-A01710608/issues"
+  },
+  "homepage": "https://github.com/DanielContrerasCh/TC2005b-A01710608#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
