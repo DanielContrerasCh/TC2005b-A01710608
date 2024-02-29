@@ -1,5 +1,4 @@
 const filesystem = require('fs');
-let ctr = 1;
 
 const express = require('express');
 

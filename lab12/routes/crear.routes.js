@@ -4,12 +4,26 @@ let ctr = 1;
 const express = require('express');
 const router = express.Router();
 
+const lista = [{
+    nombre: "Aquí empieza tu top", 
+    imagen: "https://cdn-icons-png.flaticon.com/512/44/44522.png",
+    descripcion: "Empieza a añadir tus artistas en la página de `Armar tu propio Top`"
+}];
+
+
+router.get('/vis', (request, response, next) => {
+    response.render('visualiza', {
+        lista: lista
+    });
+  });
+
 router.get('/armar', (request, response, next) => {
     response.render(`armar`);
 });
 
 router.post('/armar', (request, response, next) => {
     console.log(request.body);
+    lista.push(request.body)
     let nombre = request.body.nombre;
     let imagen = request.body.imagen;
     let desc = request.body.descripcion;
