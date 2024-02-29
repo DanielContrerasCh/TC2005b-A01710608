@@ -156,35 +156,7 @@ router.use('/artistas/2', (request, response, next) => {
 });
 
 router.use('/artistas/3', (request, response, next) => {
-    send_response = header + `
-        <div class="container">
-            <div class="column is-three-fifths is-offset-one-fifth">
-                <div class="card">
-                    <div class="card-image">
-                        <figure class="image is-4by3">
-                            <img src="https://enfoquenoticias.com.mx/wp-content/uploads/2023/04/artic.jpeg" alt="Placeholder image">
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="media">
-                            <div class="media-content">
-                                <p class="title is-4">Arctic Monkeys</p>
-                            </div>
-                        </div>
-
-                        <div class="content">
-                            Arctic Monkeys (Español: Los Monos Árticos) es una banda británica de rock alternativo, 
-                            formada en Sheffield, Reino Unido. El grupo está compuesto por el guitarrista principal y vocalista Alex Turner, 
-                            el guitarrista Jamie Cook, el baterista Matt Helders y el bajista Nick O'Malley. 
-                            El bajista original de la banda, Andy Nicholson, dejó el proyecto en 2006 poco después del 
-                            lanzamiento del álbum debut de la banda.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    ` + footer;
-    response.send(send_response);
+    response.render(`armar`);
 });
 
 router.post('/armar', (request, response, next) => {
@@ -200,73 +172,7 @@ router.post('/armar', (request, response, next) => {
 });
 
 router.get('/', (request, response, next) => {
-    response.send(`
-    <!DOCTYPE html>
-    <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Música</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    </head>
-    <body>
-        <nav class="navbar is-black" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-                <a class="navbar-item" href="/">
-                    <img src="https://www.unhcr.org/spotlight/wp-content/uploads/sites/55/2021/05/Icon-test-House-white.png" width="30" height="28">
-                </a>
-  
-                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </a>
-            </div>
-  
-            <div id="navbarBasicExample" class="navbar-menu">
-                <div class="navbar-start">
-                    <a class="navbar-item" href="/">
-                        Home
-                    </a>
-  
-                    <a class="navbar-item" href="/armar">
-                        Arma tu propio top
-                    </a>
-
-                    <a class="navbar-item" href="/error">
-                        Error 404
-                    </a>
-                </div>
-            </div>
-        </nav>
-        <section class="section">
-            <div class="container">
-                <h1 class="subtitle">Mi sitio web sobre mis artistas y bandas favoritos</h1>
-            </div>  
-            <div class="container">
-                <p>Aquí puedes encontrar información sobre ellos.</p>
-            </div>
-        </section>
-        <section class="section">
-            <div class="container">
-                <h2 class="title">Mi top 3</h2>
-                <ul>
-                    <li><a href="/artistas/1">Mac Miller</a></li>
-                    <li><a href="/artistas/2">Joji</a></li>
-                    <li><a href="/artistas/3">Arctic Monkeys</a></li>
-                </ul>
-            </div>
-        </section>
-        <footer class="footer">
-            <div class="content has-text-centered">
-              <p>
-                <strong>Laboratorio 10</strong> por Daniel Contreras Chávez.
-              </p>
-            </div>
-            </footer>
-            </body>
-            </html>
-    `);
+    response.render(`musica`)
 });
 
 module.exports = router;
