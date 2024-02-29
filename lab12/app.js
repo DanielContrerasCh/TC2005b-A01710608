@@ -13,8 +13,10 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false}));
 
 const rutasArtistas = require('./routes/artistas.routes');
-
 app.use('/', rutasArtistas);
+
+const rutasCrear = require('./routes/crear.routes');
+app.use('/', rutasCrear);
 
 app.use((request, response, next) => {
     response.status(404);
