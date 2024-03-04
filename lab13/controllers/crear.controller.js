@@ -7,7 +7,7 @@ exports.get_armar = (request, response, next) => {
 
 exports.post_armar = (request, response, next) => {
     console.log(request.body);
-    lista.push(request.body)
+    lista.push(request.body);
     let nombre = request.body.nombre;
     let imagen = request.body.imagen;
     let desc = request.body.descripcion;

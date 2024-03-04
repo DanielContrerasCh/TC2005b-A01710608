@@ -15,12 +15,16 @@ module.exports = class Artista {
 
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
     save() {
-        
+        lista.push({
+            nombre: this.nombre,
+            imagen: this.imagen,
+            descripcion: this.descripcion
+        });
     }
 
     //Este método servirá para devolver los objetos del almacenamiento persistente.
     static fetchAll() {
-        
+        return lista;
     }
 
 }
