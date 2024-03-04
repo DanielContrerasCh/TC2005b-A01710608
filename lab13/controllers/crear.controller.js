@@ -1,5 +1,6 @@
 const filesystem = require('fs');
 let ctr = 1;
+const Artista = require('../models/crear.model');
 
 exports.get_armar = (request, response, next) => {
     response.render(`armar`);
@@ -7,10 +8,15 @@ exports.get_armar = (request, response, next) => {
 
 exports.post_armar = (request, response, next) => {
     console.log(request.body);
-    lista.push(request.body);
     let nombre = request.body.nombre;
     let imagen = request.body.imagen;
     let desc = request.body.descripcion;
+
+    const artista = 
+        new Artista(nombre, imagen, desc);
+    artista.save();
+
+    
     let top = `\nartista ${ctr}:\n${nombre}\n${imagen}\n${desc}\n`;
     ctr++;
     filesystem.appendFileSync('Top.txt', top);
@@ -20,7 +26,7 @@ exports.post_armar = (request, response, next) => {
 
 exports.get_list = (request, response, next) => {
     response.render('visualiza', {
-        lista: lista
+        lista: Artista.fetchAll()
     });
 };
 
