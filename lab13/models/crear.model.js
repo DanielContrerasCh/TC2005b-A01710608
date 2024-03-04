@@ -1,3 +1,6 @@
+const filesystem = require('fs');
+let ctr = 1;
+
 const lista = [{
     nombre: "Aquí empieza tu top", 
     imagen: "https://cdn-icons-png.flaticon.com/512/44/44522.png",
@@ -20,6 +23,10 @@ module.exports = class Artista {
             imagen: this.imagen,
             descripcion: this.descripcion
         });
+
+        let top = `\nartista ${ctr}:\n${this.nombre}\n${this.imagen}\n${this.desc}\n`;
+        ctr++;
+        filesystem.appendFileSync('Top.txt', top);
     }
 
     //Este método servirá para devolver los objetos del almacenamiento persistente.

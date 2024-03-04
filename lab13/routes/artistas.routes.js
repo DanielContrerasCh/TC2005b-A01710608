@@ -1,17 +1,12 @@
 const express = require('express');
-
 const router = express.Router();
 
-router.use('/artistas/1', (request, response, next) => {
-    response.render(`artista1`);
-});
+const artistasController = require('../controllers/artistas.controller');
 
-router.use('/artistas/2', (request, response, next) => {
-    response.render(`artista2`);
-});
+router.use('/artistas/1', artistasController.get_artista1);
 
-router.use('/artistas/3', (request, response, next) => {
-    response.render(`artista3`);
-});
+router.use('/artistas/2', artistasController.get_artista2);
+
+router.use('/artistas/3', artistasController.get_artista3);
 
 module.exports = router;

@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const artistasController = require('../controllers/crear.controller');
+const crearController = require('../controllers/crear.controller');
 
-router.get('/vis', artistasController.get_list);
+router.get('/vis', crearController.get_list);
 
-router.get('/armar', artistasController.get_armar);
+router.get('/armar', crearController.get_armar);
 
-router.post('/armar', artistasController.post_armar);
+router.post('/armar', crearController.post_armar);
 
-router.get('/', artistasController.get_root);
+router.get('/', crearController.get_root);
 
 module.exports = router;
