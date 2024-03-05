@@ -38,5 +38,24 @@
                     Error 404
                 </a>
             </div>
+            <div class="navbar-end">
+                
+                <% if (username == '') { %>
+
+                    <a class="navbar-item" href="/users/login">
+                        Log In
+                    </a>
+
+                <% } else { %>
+
+                    <span>
+                    Hola <%= username %> 
+                    </span>
+                    <a class="navbar-item button-is-danger" href="/users/logout">
+                        Log Out
+                    </a>
+
+                <% } %>
+            </div>
         </div>
     </nav>

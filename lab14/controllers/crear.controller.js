@@ -1,7 +1,9 @@
 const Artista = require('../models/crear.model');
 
 exports.get_armar = (request, response, next) => {
-    response.render(`armar`);
+    response.render(`armar`, {
+        username: request.session.username || '',
+    });
 };
 
 exports.post_armar = (request, response, next) => {
@@ -27,9 +29,12 @@ exports.get_list = (request, response, next) => {
     response.render('visualiza', {
         lista: Artista.fetchAll(),
         ultimo_artista: ultimo_artista,
+        username: request.session.username || '',
     });
 };
 
 exports.get_root = (request, response, next) => {
-    response.render(`musica`)
+    response.render(`musica`, {
+        username: request.session.username || '',
+    })
 };

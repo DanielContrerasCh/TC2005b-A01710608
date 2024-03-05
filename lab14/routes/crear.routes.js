@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+
 const crearController = require('../controllers/crear.controller');
 
 router.get('/vis', crearController.get_list);

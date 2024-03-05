@@ -20,6 +20,9 @@ const bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({extended: false}));
 
+const rutasUsuarios = require('./routes/usuarios.routes')
+app.use('/users', rutasUsuarios)
+
 const rutasArtistas = require('./routes/artistas.routes');
 app.use('/', rutasArtistas);
 
