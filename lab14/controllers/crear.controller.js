@@ -12,7 +12,7 @@ exports.post_armar = (request, response, next) => {
         new Artista(request.body.nombre, request.body.imagen, request.body.descripcion);
     artista.save();
     
-    response.setHeader('Set-Cookie', 'ultimo_artista =' + request.body.nombre);
+    response.setHeader('Set-Cookie', 'ultimo_artista =' + request.body.nombre + ';HttpOnly');
     response.redirect('/');
 };
 

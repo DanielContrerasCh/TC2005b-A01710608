@@ -38,4 +38,9 @@
 
         </div>
     </section>
+    <% if(ultimo_artista != '') { %>
+        <div>
+            El último artista fue <%= ultimo_artista %>.
+        </div>
+    <% } %>
     <%- include('includes/foot.ejs') %>
