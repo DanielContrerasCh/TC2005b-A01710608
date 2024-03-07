@@ -26,11 +26,19 @@ exports.get_list = (request, response, next) => {
         ultimo_artista = '';
     }
 
-    response.render('visualiza', {
-        lista: Artista.fetchAll(),
-        ultimo_artista: ultimo_artista,
-        username: request.session.username || '',
+    Artista.fetchAll().then(([rows, fieldData]) => {
+        console.log(rows);
+        response.render('visualiza', {
+            lista: rows,
+            ultimo_artista: ultimo_artista,
+            username: request.session.username || '',
+        });
+    })
+    .catch(err => {
+        console.log(err);
     });
+
+
 };
 
 exports.get_root = (request, response, next) => {

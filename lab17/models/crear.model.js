@@ -1,11 +1,6 @@
 const filesystem = require('fs');
+const db = require('../util/database');
 let ctr = 1;
-
-const lista = [{
-    nombre: "Aquí empieza tu top", 
-    imagen: "https://cdn-icons-png.flaticon.com/512/44/44522.png",
-    descripcion: "Empieza a añadir tus artistas en la página de `Armar tu propio Top`"
-}];
 
 module.exports = class Artista {
 
@@ -31,7 +26,7 @@ module.exports = class Artista {
 
     //Este método servirá para devolver los objetos del almacenamiento persistente.
     static fetchAll() {
-        return lista;
+        return db.execute('SELECT * FROM artistaCreado');
     }
 
 }
