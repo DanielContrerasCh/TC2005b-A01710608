@@ -13,15 +13,13 @@ module.exports = class Artista {
 
     //Este método servirá para guardar de manera persistente el nuevo objeto.
     save() {
-        lista.push({
-            nombre: this.nombre,
-            imagen: this.imagen,
-            descripcion: this.descripcion
-        });
-
         let top = `\nartista ${ctr}:\n${this.nombre}\n${this.imagen}\n${this.desc}\n`;
         ctr++;
         filesystem.appendFileSync('Top.txt', top);
+
+        return db.execute('INSERT INTO artistaCreado (nombre, imagen, descripcion, username) VALUES (?, ?, ?, "databasedaniel99")',
+            [this.nombre, this.imagen, this.descripcion]
+        );
     }
 
     //Este método servirá para devolver los objetos del almacenamiento persistente.
