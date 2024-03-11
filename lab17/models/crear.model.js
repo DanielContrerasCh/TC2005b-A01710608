@@ -27,4 +27,17 @@ module.exports = class Artista {
         return db.execute('SELECT * FROM artistaCreado');
     }
 
+    static fetchOne(id) {
+        return db.execute('SELECT * FROM artistaCreado WHERE id=?', 
+        [id]);
+    }
+
+    static fetch(id) {
+        if (id) {
+            return this.fetchOne(id);
+        } else {
+            return this.fetchAll();
+        }
+    }
+
 }

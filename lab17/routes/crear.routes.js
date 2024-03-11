@@ -9,6 +9,8 @@ router.get('/armar', crearController.get_armar);
 
 router.post('/armar', crearController.post_armar);
 
+router.get('/vis/:artistaCreado_id', crearController.get_list);
+
 router.get('/', crearController.get_root);
 
 module.exports = router;

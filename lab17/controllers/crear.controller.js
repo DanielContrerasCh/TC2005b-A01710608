@@ -31,7 +31,7 @@ exports.get_list = (request, response, next) => {
         ultimo_artista = '';
     }
 
-    Artista.fetchAll().then(([rows, fieldData]) => {
+    Artista.fetch(request.params.artistaCreado_id).then(([rows, fieldData]) => {
         console.log(rows);
         response.render('visualiza', {
             lista: rows,
