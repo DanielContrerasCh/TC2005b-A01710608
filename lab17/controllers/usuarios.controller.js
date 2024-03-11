@@ -1,4 +1,5 @@
 const Usuario = require('../models/usuario.model');
+const bcrypt = require('bcryptjs');
 
 exports.getLogin = (request, response, next) => {
     response.render('login' , {
@@ -8,8 +9,31 @@ exports.getLogin = (request, response, next) => {
 };
 
 exports.postLogin = (request, response, next) => {
-    request.session.username = request.body.username;
-    response.redirect('/')
+    Usuario.fetchOne(request.body.username, request.body.password).then(([users, fieldData]) => {
+        if(users.length == 1) {
+            // users[0] contiene el objeto de la respuesta de la consulta
+            const user = users[0];
+            bcrypt.compare(request.body.password, user.password)
+                .then(doMatch => {
+                    if (doMatch) {
+                        request.session.isLoggedIn = true;
+                        request.session.username = user.username;
+                        return request.session.save(err => {
+                            response.redirect('/vis');
+                        });
+                    } else {
+                        return response.redirect('/users/login');
+                    }
+                }).catch(err => {
+                    response.redirect('/users/login');
+                });
+        } else {
+            response.redirect('/users/login');
+        }        
+    })
+    .catch(err => {
+        console.log(err);
+    });
 };
 
 exports.getLogOut = (request, response, next) => {
@@ -32,5 +56,5 @@ exports.postSignUp = (request, response, next) => {
     })
     .catch(err => {
         console.log(err);
-    });1
+    });
 };
