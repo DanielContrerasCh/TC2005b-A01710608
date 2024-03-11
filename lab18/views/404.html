@@ -39,27 +39,10 @@
                 </a>
             </div>
             <div class="navbar-end">
-                
-                <% if (username == '') { %>
-
-                    <a class="navbar-item" href="/users/signUp">
-                        Registrarse
-                    </a>
-
-                    <a class="navbar-item" href="/users/login">
-                        Entrar
-                    </a>
-
-                <% } else { %>
-
-                    <span>
-                    Hola <%= username %> 
-                    </span>
-                    <a class="navbar-item button-is-danger" href="/users/logout">
-                        Log Out
-                    </a>
-
-                <% } %>
+                <a class="navbar-item" href="/users/login">
+                    Log In
+                </a>
             </div>
         </div>
     </nav>
+    <h1 class="title">404, Aquí no existe buena música</h1>

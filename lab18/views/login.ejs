@@ -2,8 +2,8 @@
 
 <section class="section">
     <div class="container">
-        <h2 class="title"> <% if(registrar) { %>Regístrate <% } else { %> Bienvenido <% } %> </h2>
-        <form action="/users/<% if(registrar) { %>signUp <% } else { %> login <% } %>" method="POST">
+        <h2 class="title">Bienvenido</h2>
+        <form action="/users/login" method="POST">
             <div class="field">
                 <label class="label">Nombre de usuario</label>
                     <div class="control">

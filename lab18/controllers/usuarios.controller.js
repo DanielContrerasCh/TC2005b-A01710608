@@ -1,7 +1,6 @@
 exports.getLogin = (request, response, next) => {
     response.render('login' , {
         username: request.session.username || '',
-        registrar: false,
     });
 };
 
@@ -14,11 +13,4 @@ exports.getLogOut = (request, response, next) => {
     request.session.destroy(() => {
         response.redirect('/'); //Este código se ejecuta cuando la sesión se elimina.
     });
-};
-
-exports.getSignUp = (request, response, next) => {
-    response.render('login', {
-        username: request.session.username || '',
-        registrar: true,
-    })
 };
