@@ -12,9 +12,10 @@ exports.post_armar = (request, response, next) => {
 
     const artista = 
         new Artista(request.body.nombre, request.body.imagen, request.body.descripcion);
+        
     artista.save().then(([rows, fieldData]) => {
         response.setHeader('Set-Cookie', 'ultimo_artista =' + request.body.nombre + ';HttpOnly');
-        response.redirect('/');
+        response.redirect('/vis');
     })
     .catch(err => {
         console.log(err);
