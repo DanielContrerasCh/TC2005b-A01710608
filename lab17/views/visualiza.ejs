@@ -5,6 +5,12 @@
       <div class="container">
         <h1 class="title">Este es tu top de artistas</h1>
         <div class="columns">
+            <% if (lista.length < 1) { %>
+                <div class="notification is-info">
+                    <button class="delete"></button>
+                    No existe la construccion
+                </div>
+            <% } %>
           <% for (let artista of lista) { %>
 
             <div class="column">
