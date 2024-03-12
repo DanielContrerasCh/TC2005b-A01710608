@@ -4,6 +4,8 @@
     <div class="container">
         <h2 class="title">Arma tu top</h2>
         <form action="/armar" method="POST">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+            <input type="hidden" name="username" value="<%= username %>" >
             <div class="field">
                 <label class="label">Nombre del artista / Banda</label>
                     <div class="control">
