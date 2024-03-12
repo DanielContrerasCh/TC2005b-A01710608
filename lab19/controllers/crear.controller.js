@@ -3,6 +3,8 @@ const Artista = require('../models/crear.model');
 exports.get_armar = (request, response, next) => {
     response.render(`armar`, {
         username: request.session.username || '',
+        csrfToken: request.csrfToken(),
+        permisos: request.session.permisos || [],
     });
 };
 
@@ -11,7 +13,7 @@ exports.post_armar = (request, response, next) => {
     console.log(request.body);
 
     const artista = 
-        new Artista(request.body.nombre, request.body.imagen, request.body.descripcion);
+        new Artista(request.body.nombre, request.body.imagen, request.body.descripcion, request.body.username);
         
     artista.save().then(([rows, fieldData]) => {
         response.setHeader('Set-Cookie', 'ultimo_artista =' + request.body.nombre + ';HttpOnly');
@@ -37,6 +39,7 @@ exports.get_list = (request, response, next) => {
             lista: rows,
             ultimo_artista: ultimo_artista,
             username: request.session.username || '',
+            permisos: request.session.permisos || [],
         });
     })
     .catch(err => {
@@ -49,5 +52,6 @@ exports.get_list = (request, response, next) => {
 exports.get_root = (request, response, next) => {
     response.render(`musica`, {
         username: request.session.username || '',
+        permisos: request.session.permisos || [],
     })
 };

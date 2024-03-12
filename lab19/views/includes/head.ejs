@@ -26,13 +26,19 @@
                     Home
                 </a>
 
-                <a class="navbar-item" href="/armar">
-                    Arma tu propio top
-                </a>
+                <% for(let funcion of permisos) { %>
+                    <% if(funcion.funcion == 'construir') { %>
+                    <a class="navbar-item" href="/armar">
+                        Arma tu propio top
+                    </a>
+                    <% } %>
 
-                <a class="navbar-item" href="/vis">
-                    Visualiza tu top
-                </a>
+                    <% if(funcion.funcion == 'ver') { %>
+                    <a class="navbar-item" href="/vis">
+                        Visualiza tu top
+                    </a>
+                    <% } %>
+                <% } %>
 
                 <a class="navbar-item" href="/error">
                     Error 404
@@ -42,8 +48,12 @@
                 
                 <% if (username == '') { %>
 
+                    <a class="navbar-item" href="/users/signUp">
+                        Registrarse
+                    </a>
+
                     <a class="navbar-item" href="/users/login">
-                        Log In
+                        Entrar
                     </a>
 
                 <% } else { %>
