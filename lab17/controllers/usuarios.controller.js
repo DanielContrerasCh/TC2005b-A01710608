@@ -2,9 +2,12 @@ const Usuario = require('../models/usuario.model');
 const bcrypt = require('bcryptjs');
 
 exports.getLogin = (request, response, next) => {
+    const error = request.session.error || '';
+    request.session.error = '';
     response.render('login' , {
         username: request.session.username || '',
         registrar: false,
+        error: error,
     });
 };
 
@@ -22,12 +25,14 @@ exports.postLogin = (request, response, next) => {
                             response.redirect('/vis');
                         });
                     } else {
+                        request.session.error = 'El usuario y/o contraseña son incorrectos.';
                         return response.redirect('/users/login');
                     }
                 }).catch(err => {
                     response.redirect('/users/login');
                 });
         } else {
+            request.session.error = 'El usuario y/o contraseña son incorrectos.';
             response.redirect('/users/login');
         }        
     })
@@ -43,9 +48,12 @@ exports.getLogOut = (request, response, next) => {
 };
 
 exports.getSignUp = (request, response, next) => {
+    const error = request.session.error || '';
+    request.session.error = '';
     response.render('login', {
         username: request.session.username || '',
         registrar: true,
+        error: error,
     })
 };
 
@@ -56,5 +64,7 @@ exports.postSignUp = (request, response, next) => {
     })
     .catch(err => {
         console.log(err);
+        request.session.error = 'Nombre de usuario inválido';
+        response.redirect('/users/signUp');
     });
 };

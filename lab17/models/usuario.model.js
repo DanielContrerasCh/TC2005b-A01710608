@@ -19,6 +19,7 @@ module.exports = class Usuario {
         })
         .catch(err => {
             console.log(err);
+            throw Error('Nombre de usuario incorrecto');
         });
     }
 

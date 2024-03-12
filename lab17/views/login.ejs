@@ -3,6 +3,13 @@
 <section class="section">
     <div class="container">
         <h2 class="title"> <% if(registrar) { %>Regístrate <% } else { %> Bienvenido <% } %> </h2>
+
+        <% if (error) { %>
+            <div class="notification is-danger">
+                <strong> <%= error %> </strong>
+            </div>
+        <% } %>
+        
         <form action="/users/<% if(registrar) { %>signUp<% } else { %>login<% } %>" method="POST">
             <div class="field">
                 <label class="label">Nombre de usuario</label>
