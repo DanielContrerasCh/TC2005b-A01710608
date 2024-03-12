@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale-1">
+    <title>
+        Laboratorio 1
+    </title>
+
+    <link rel="stylesheet" href="\css\styles_min.css"> 
+</head>
+
+<body>
+        <h1>
+            Daniel Contreras Chávez
+        </h1>
+
+    <div id="content">
+            <h2 class="center-txt">
+                A01710608 - danicontreras0409@gmail.com
+            </h2>  
+
+        <img src="images/yo.jpg" alt="Una foto de mí" class="center">
+
+        <h2 class="center-txt">
+            ¿Quién soy?
+        </h2>
+
+        <p class="center-txt">
+            Me llamo Daniel Contreras Chávez, tengo 20 años y estoy cursando el cuarto semestre de la carrera 
+            de tecnologías computacionales en el tecnológico de Monterrey. Me apasionan mucho los videojuegos, 
+            mi videojuego favorito es el League of Legends, y es al
+            que más tiempo le he invertido; además, escuchar música y hacer ejercicio son de mis pasatiempos favoritos.
+        </p>
+        <button onclick="greet()" class="center-txt">Da click si te gusta League of Legends</button>
+
+        <h2 class="center-txt">
+            Proyectos
+        </h2>
+        <p class="center-txt">
+            Entre mis principales proyectos, tengo el desarrollo de un satélite junto con un equipo de amigos, 
+            idea que llevamos al hackaton "DefinSpace 2023" y logramos obtener un segundo lugar.
+        </p>
+        <img src="images/definspace.jpg" alt="Una foto del certificado de segundo lugar" class="center">
+
+        <h2 class="center-txt">
+            Mis redes:
+        </h2>
+
+        <div id="redes">
+            <div id="github">
+                <strong> Github: </strong>
+                <a href="https://github.com/DanielContrerasCh">https://github.com/DanielContrerasCh</a>
+                <br><img src="images/github.png" alt="Logo de github" id="git">
+            </div>
+
+            <div id="linkedin">
+                <strong> Linkedin: </strong>
+                <a href="https://www.linkedin.com/in/daniel-c-22b304292/">https://www.linkedin.com/in/daniel-c-22b304292/</a>
+                <br><img src="images/linkedin.avif" alt="logo de linkedin">
+            </div>
+        </div>
+
+        <br>
+    </div>
+    <div class="preguntas">
+        <h2 class="center-txt">
+            Preguntas a responder
+        </h2>
+
+        <ul>
+            <li><strong>¿Cuál es la diferencia entre internet y World Wide Web?</strong>
+                <p>
+                    Internet es la base de la comunicación entre dispositivos mediante una red global de computadoras 
+                    interconectadas, mientras que la World Wide Web es la información que funciona sobre internet, 
+                    basada en documentos interconectados llamados páginas web. (BBC News, 2019)
+                </p>
+            </li>
+
+            <li><strong>¿Cuáles son las partes de un URL?</strong>
+                <p>
+                    -Protocolo: Es el que se encarga de indicar cómo conectarse a una página.<br>
+                    -Subdominio: Es una cadena de letras que indica la dirección y aparece antes del primer punto en una URL.<br>
+                    -Dominio: Es la parte de la URL que identifica a la web. <br>
+                    -Dominio de primer nivel: Es el que va después del nombre de la web, ayuda para describir la naturaleza del sitio.<br>
+                    -Subcarpeta: Se encuentra dentro del directorio principal de la web, y sirve 
+                    para separar el contenido en secciones lógicas.<br>
+                    -Slug: Sirve para describir el contenido de una página.<br>
+                    -Parámetros de URL: Se ubican después de un signo de interrogación y te indica el tipo de información que se envía y
+                    la información enviada
+                </p>
+            </li>
+
+            <li><strong>¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE?</strong>
+                <p>
+                    -GET:Recuperar un recurso del servidor<br>
+                    -HEAD: Obtener información sobre un recurso sin descargarlo <br>
+                    -POST: Enviar datos al servidor para crear o actualizar un recurso<br>
+                    -PUT: Reemplazar un recurso existente en el servidor <br>
+                    -PATCH: Modificar parcialmente un recurso en el servidor <br>
+                    -DELETE: Eliminar un recurso del servidor <br>
+                </p>
+            </li>
+
+            <li><strong>¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando 
+                ingresas tu usuario y contraseña en algún sitio? ¿Por qué?</strong>
+                <p>
+                    El método POST debe usarse para enviar formularios HTML. 
+                    Esto se debe a que el método POST permite enviar datos confidenciales (como contraseñas) de forma segura.
+                </p>
+            </li>
+
+            <li><strong>Un servidor web devuelve una respuesta HTTP con código 200. 
+                ¿Qué significa esto? ¿Ocurrió algún error?</strong>
+                <p>
+                    El código HTTP 200 significa que la solicitud se ha completado con éxito y el servidor ha devuelto el recurso solicitado.
+                    No ha ocurrido ningún error.
+                </p>
+            </li>
+
+            <li><strong>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que 
+                intentó acceder al sitio y se encontró con un error 404? ¿Por qué?</strong>
+                <p>
+                    Error 404: el recurso solicitado no se encuentra en el servidor. 
+                    Es responsabilidad del desarrollador corregir el error si la URL es incorrecta o si el recurso ha sido eliminado.
+                </p>
+            </li>
+
+            <li><strong>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que 
+                intentó acceder al sitio y se encontró con un error 500? ¿Por qué?</strong>
+                <p>
+                    Error 500: un error inesperado ha ocurrido en el servidor. 
+                    Es responsabilidad del desarrollador corregir el error en el código del servidor.
+                </p>
+            </li>
+
+            <li><strong>¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)? 
+                Menciona algunos elementos de HTML 4 que en HTML5 estén desaprobados.</strong>
+                <p>
+                    Un atributo HTML5 desaprobado es un atributo que no se recomienda usar y 
+                    que puede ser eliminado en futuras versiones de HTML. 
+                    Algunos ejemplos de elementos de HTML 4 desaprobados en HTML5 son:
+                </p>
+                <ul>
+                    <li>
+                        center
+                    </li>
+
+                    <li>
+                        basefont
+                    </li>
+
+                    <li>
+                        font
+                    </li>
+                </ul>     
+            </li>
+
+            <li><strong>¿Cuáles son las diferencias principales entre HTML 4 y HTML5?</strong>  
+                    <ul>
+                        <li>
+                            HTML5 es más semántico: los elementos tienen un significado más preciso.
+                        </li>
+                            
+                        <li>
+                            HTML5 es más flexible: permite una mayor variedad de estructuras y estilos.
+                        </li>
+
+                        <li>
+                            HTML5 es multimedia: incluye soporte nativo para audio, video y gráficos.
+                        </li>
+
+                        <li>
+                            HTML5 es más fácil de aprender: la sintaxis es más sencilla y legible.
+                        </li>
+                    </ul>
+            </li>
+
+            <li><strong>¿Qué componentes de estructura y estilo tiene una tabla?</strong>
+                <p>
+                    De estructura:
+                </p>
+                    <ul>
+                        <li>
+                            table: define la tabla
+                        </li>
+
+                        <li>
+                            tr: define una fila
+                        </li>
+
+                        <li>
+                            td: define una celda
+                        </li>
+                    </ul>
+
+                    <p>
+                        De estilo:
+                    </p>
+                    
+                    <ul>
+                        <li>
+                            width: ancho de la tabla
+                        </li>
+
+                        <li>
+                            height: altura de la tabla
+                        </li>
+
+                        <li>
+                            border: borde de la tabla
+                        </li>
+                    </ul>
+                
+            </li>
+
+            <li><strong>¿Cuáles son los principales controles de una forma HTML5?</strong>
+                        <ul>
+                            <li>
+                                input: campo de entrada de texto
+                            </li>
+
+                            <li>
+                                textarea: área de texto
+                            </li>
+
+                            <li>
+                                select: lista de selección
+                            </li>
+
+                            <li>
+                                checkbox: casilla de verificación
+                            </li>
+
+                            <li>
+                                radio: botón de radio
+                            </li>
+
+                            <li>
+                                button: botón
+                            </li>
+                        </ul>  
+            </li>
+
+            <li><strong>¿Qué tanto soporte HTML5 tiene el navegador que utilizas?</strong>
+            <p>
+                Utilizo opera gx, que en el test de https://html5test.co, obtuvo una puntuación de 579 de 594 puntos.
+            </p>
+
+            <li><strong>¿Cuál es el ciclo de vida de los sistemas de información?</strong>
+                <ul>
+                    <li>
+                        Planificación: Se define la necesidad del sistema y se establecen los objetivos.
+                    </li>
+
+                    <li>
+                        Análisis: Se estudian los procesos y necesidades del usuario para determinar los requisitos del sistema.
+                    </li>
+
+                    <li>
+                        Diseño: Se crea la arquitectura del sistema, incluyendo la interfaz, la base de datos y los módulos del software.
+                    </li>
+
+                    <li>
+                        Diseño: Se crea la arquitectura del sistema, incluyendo la interfaz, la base de datos y los módulos del software.
+                    </li>
+
+                    <li>
+                        Pruebas: Se realizan pruebas para asegurar que el sistema cumple con los requisitos y funciona correctamente.
+                    </li>
+
+                    <li>
+                        Implantación: Se pone en marcha el sistema y se capacita a los usuarios.
+                    </li>
+
+                    <li>
+                        Mantenimiento: Se realizan actualizaciones, correcciones de errores y modificaciones 
+                        al sistema para adaptarlo a las nuevas necesidades.
+                    </li>
+                </ul>
+            </li>
+
+            <li><strong>¿Cuál es el ciclo de desarrollo de sistemas de información?</strong>
+                <p>
+                    A diferencia del ciclo de vida, que termina cuando retiras o se deja de usar el software,
+                    el ciclo de desarrollo termina en cuanto entregas el software.
+                </p>
+            </li>        
+        </ul>
+    </div>
+
+    <div class="referencias">
+        <h3>
+            Referencias:
+        </h3>
+        <ul>
+            <li>
+                BBC News. (2019). ¿Cuál es la diferencia entre internet y la web? (y por qué muchos las confunden). 
+                BBC News Mundo. https://www.bbc.com/mundo/noticias-47538812#:~:text=Internet%20es%20una%20inmensa%20red
+            </li>
+
+            <li>
+                Digital Guide IONOS. (2020). GET vs. POST: los dos métodos de petición HTTP más conocidos cara a cara. 
+                IONOS Digitalguide. https://www.ionos.es/digitalguide/paginas-web/desarrollo-web/get-vs-post/
+            </li>
+
+            <li>
+                DotCom Monitor. (s.f.). Lista de códigos de estado HTTP ? Códigos de error HTTP explicados. 
+                Dotcom-Monitor. Recuperado el 12 de febrero del 2024, 
+                de https://www.dotcom-monitor.com/wiki/es/knowledge-base/http-status-codes/#:~:text=200%3A%20OK
+            </li>
+
+            <li>
+                El ciclo de vida de un sistema de información. (s.f.). 
+                https://flanagan.ugr.es/docencia/2005-2006/2/apuntes/ciclovida.pdf
+            </li>
+
+            <li>
+                Fernández, E. C. (2022). Estas son las etiquetas obsoletas en HTML5: 
+                ¡Actualízate! | Tokio. Tokio School. https://www.tokioschool.com/noticias/etiquetas-obsoletas-html5/
+            </li>
+
+            <li>
+                Mdn Web Docs. (s.f.). Conceptos básicos de las tablas HTML - Aprende desarrollo web | 
+                MDN. Developer.mozilla.org. Recuperado del 12 de febrero del 2024, 
+                de https://developer.mozilla.org/es/docs/Learn/HTML/Tables/Basics
+            </li>
+
+            <li>
+                Mdn Web Docs. (n.d.-b). Métodos de petición HTTP - HTTP | 
+                MDN. Developer.mozilla.org. Recuperado el 12 de febrero del 2024, de:
+                https://developer.mozilla.org/es/docs/Web/HTTP/Methods
+            </li>
+
+            <li>
+                Pol, T. (2023). ¿Qué Es una URL? Significado, Estructura y Consejos de Optimización.
+                Semrush Blog. https://es.semrush.com/blog/que-es-una-url/
+            </li>
+
+            <li>
+                Sintes, B. (2023). Formularios (1). HTML. Páginas web HTML y hojas de estilo CSS. 
+                Bartolomé Sintes Marco. www.mclibre.org. Www.mclibre.org. 
+                https://www.mclibre.org/consultar/htmlcss/html/html-formularios.html#:~:text=En%20HTML%205%20se%20a
+            </li>
+
+            <li>
+                V, B. (2021). La diferencia entre HTML y HTML5. Tutoriales Hostinger. 
+                https://www.hostinger.mx/tutoriales/diferencia-entre-html-y-html5#:~:text=El%20HTML%20s
+            </li>
+        
+        </ul>
+    </div>  
+
+    <h1>
+        Laboratorio 3: CSS
+    </h1>
+
+    <div class="preguntas">
+        <h2>
+            Preguntas a responder
+        </h2>
+
+        <ul>
+            <li><strong>Como ingeniero de software ¿cuál es tu recomendación sobre el uso de !important en un CSS?</strong>
+                <p>
+                    Hay que tener cuidado con el uso de !important, pues cuando se usa, un elemento se vuelve de alta prioridad, y puede a ayudar a forzar una regla
+                    de estilo específica, lo que puede causar probblemas de Mantenimiento y legibilidad en el código. Por lo que hay que ser consciente
+                    con su uso.
+                </p>
+            </li>
+
+            <li><strong>Si se pone una imagen de fondo en una página HTML, ¿por qué debe escogerse con cuidado?</strong>
+                <p>
+                    Porque una imagen grande podría impactar el rendimiento de la página, además debe de ajustarse al diseño y contenido de la página.
+                </p>
+            </li>
+
+            <li><strong>Como ingeniero de software, ¿cuál es tu recomendación al elegir las unidades de un propiedad de estilo entre %, px y pt?</strong>
+                <p>
+                    Primero hay que identificar qué tipo de elemento queremos modificar, por un lado, "px" es ideal para propiedades relacionadas con la resolución
+                    de pantalla. Por el otro lado, "pt" es ideal para el texto y "%" para propiedades que se basan en el tamaño de un elemento padre.
+                </p>
+            </li>
+
+            <li><strong>¿Por qué el uso de una versión minimizada del CSS mejora el rendimiento del sitio?</strong>
+                <p>
+                    La reducción de CSS ayuda al rendimiento porque elimina todos los espacios y caracteres innecesarios sin afectar cómo lo interpretan los navegadores.
+                </p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="referencias">
+        <h3>
+            Referencias:
+        </h3>
+        <ul>
+            <li>
+                Álvarez, M. A. (n.d.). Fondos de imagen en HTML. DesarrolloWeb.com. Retrieved February 14, 2024, from https://desarrolloweb.com/articulos/1384.php
+            </li>
+
+            <li>
+                Cloudflare. (n.d.). Cómo minificar el CSS para mejorar el rendimiento del sitio web.
+            </li>
+
+            <li>
+                Integra Sistemas. (2014, December 10). Uso de !important en CSS. 
+                Integra Sistemas. https://www.integrasistemas.es/blog/general/uso-de-important-en-css/#:~:text=important%3B%20en%20CSS%2C%20no%20se
+            </li>
+
+            <li>
+                Scalercio, P. (2020, October 24). Guía de Unidades en el CSS | Alura Cursos Online. Alura. https://www.aluracursos.com/blog/guia-de-unidades-en-css
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <h1>
+            Laboratorio 4: Fundamentos de Javascript
+        </h1>
+
+        <div class="buttonContainer">
+            <button onclick="iniciaFunc()">Haz click aquí para ir a los ejercicios</button>  
+        </div>
+        
+        <div class="preguntas">
+            <h2>
+                Preguntas a responder
+            </h2>
+            <ul>
+                <li><strong>¿Qué diferencias y semejanzas hay entre Java y JavaScript?</strong>
+                    <table>
+                        <thead>
+                            <tr><th>Java</th><th>Javascript</th></tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Compilado</td>
+                                <td>Interpretado</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Lenguaje de programación orientado a objetos puros</td>
+                                <td>Puede emular la programación orientada a objetos</td>
+                            </tr>
+
+                            <tr>
+                                <td>El control lo tiene Oracle</td>
+                                <td>Gestionado por ECMAScript</td>
+                            </tr>
+                            <tr>
+                                <td>Se depura en dos fases</td>
+                                <td>Se depura en una fase</td>
+                            </tr>
+                            <tr>
+                                <td>Fuertemente tipado</td>
+                                <td>Es débilmente tipado</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </li>
+    
+                <li><strong>¿Qué métodos tiene el objeto Date? (Menciona al menos 5*)</strong>
+                    <p>
+                        -getMonth(): Devuelve el número del mes del 0 (Enero) al 11 (Diciembre).
+                    </p>
+
+                    <p>
+                        -getDate(): Devuelve el día del mes.
+                    </p>
+
+                    <p>
+                        -getDay(): Devuelve el día de la semana.
+                    </p>
+ 
+                    <p>
+                        -getHours(): Devuelve la hora actual.
+                    </p>
+                    
+                    <p>
+                        -getMinutes(): Devuelve los minutos actuales.
+                    </p>
+                </li>
+
+                <li><strong>¿Qué métodos tienen los arreglos? (Menciona al menos 5*)</strong>
+                    <p>
+                        -push(): Inserta un elemento al final del arreglo.
+                    </p>
+
+                    <p>
+                        -unshift(): Inserta un elemento al inicio del arreglo.
+                    </p>
+
+                    <p>
+                       -pop(): Remueve un elemento del principio del arreglo. 
+                    </p>
+
+                    <p>
+                        -slice(): Crea una copia sombra del arreglo.
+                    </p>
+
+                    <p>
+                        -length: Determina el tamaño del arreglo.
+                    </p>
+                </li>
+
+                <li><strong>¿Cómo se declara una variable con alcance local dentro de una función?</strong>
+                    <p>
+                        Se utiliza let, pues su alcance es sólo dentro de las llaves de una función.
+                    </p>
+                </li>
+
+                <li><strong>¿Qué implicaciones tiene utilizar variables globales dentro de funciones?</strong>
+                    <p>
+                        Su uso puede producir efectos colaterales, al producir alteraciones no
+                        previstas de su valor en una parte del programa que afectan a su uso en otra
+                        zona.
+                    </p>
+                </li>
+            </ul>
+        </div>  
+        
+        <div class="referencias">
+            <h3>
+                Referencias:
+            </h3>
+            <ul>
+                <li>
+                    Digital Learning. (2016, March 9). Métodos del objeto Date | Digital Learning. 
+                    https://www.digitallearning.es/intro-programacion-js/metodos-date.html
+                </li>
+    
+                <li>
+                    Escuela de Ingenierías Industriales. (2020). Ámbito de las variables — 
+                    Fundamentos de Programación en C++. Www2.Eii.uva.es. 
+                    https://www2.eii.uva.es/fund_inf/cpp/temas/2_tipos_variables/ambito_variables.html
+                </li>
+    
+                <li>
+                    Zubikarai, S. (2022, January 12). Manual de arreglos en JavaScript: 
+                    Métodos de arreglos de JS explicados con ejemplos. FreeCodeCamp.org. 
+                    https://www.freecodecamp.org/espanol/news/el-manual-de-arreglos-en-javascript/
+                </li>
+            </ul>      
+        </div>
+    </div>
+
+    <div>
+        <h1>
+            Laboratorio 5: Framework Foundation
+        </h1>
+
+        <div class="buttonContainer">
+            <a href="lab5/foundation.html">
+                <button>Haz click aquí para ir al HTML del laboratorio</button>
+            </a>
+        </div>
+        <div class="preguntas">
+            <h2>Preguna a responder:</h2>
+            <ul>
+                <li><strong>Describe Material design</strong>
+                    <p>Material Design es un sistema de diseño creado por Google que ofrece una guía completa para crear interfaces de 
+                        usuario intuitivas, atractivas y consistentes en diferentes plataformas.
+                    </p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="referencias">
+            <h3>
+                Referencias:
+            </h3>
+            <ul>
+                <li>
+                    Android Developers. (n.d.). Material Design para Android | Desarrolladores de Android. Android Developers. 
+                    Retrieved February 16, 2024, from 
+                    https://developer.android.com/develop/ui/views/theming/look-and-feel?hl=es-419#:~:text=Material%20Design%20es%20una%20gu
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div>
+        <h1>
+            Laboratorio 6: Programación Orientada a Eventos.
+        </h1>
+
+        <div class="buttonContainer">
+            <a href="lab6/lab6.html">
+                <button>Haz click aquí para ir al HTML del laboratorio</button>
+            </a>
+        </div>  
+    </div>
+
+    <footer>
+        <p> Hecho en <a href="https://code.visualstudio.com">Visual Studio Code</a>  </p> 
+    </footer>
+    
+    <script src="javascript/script.js"></script>
+</body> 
