@@ -4,43 +4,42 @@
     <section class="section">
       <div class="container">
         <h1 class="title">Este es tu top de artistas</h1>
+        
         <div class="columns">
             <% if (lista.length < 1) { %>
                 <div class="notification is-info">
                     <button class="delete"></button>
-                    No existe la construccion
+                    No existe la artista
                 </div>
             <% } %>
-          <% for (let artista of lista) { %>
-
-            <div class="column">
-                <div class="card">
-                    <div class="card-image">
-                    <figure class="image is-4by3">
-                        <img src="uploads/<%= artista.imagen %>" alt="Placeholder image">
-                    </figure>
-                    </div>
-                    <div class="card-content">
+            
+            <% let columns = 0; %>
+            <% for (let artista of lista) { %>
+                <% columns++ %>
+                <div class="column">
+                    <div class="card">
+                        <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="uploads/<%= artista.imagen %>" alt="Imagen de <%= artista.nombre %>">
+                        </figure>
+                        </div>
+                        <div class="card-content">
                         <div class="media">
-                            <div class="media-l eft">
-                                <figure class="image is-48x48">
-                                    <img src="uploads/<%= artista.imagen %>" alt="Placeholder image">
-                                </figure>
-                            </div>
                             <div class="media-content">
-                                <p class="title is-4">
-                                    <%= artista.nombre %>
-                                </p>
+                            <p class="title is-4"><%= artista.nombre %></p>
                             </div>
-
-                            <div class="content">
-                                <%= artista.descripcion %>
-                            </div>
+                        </div>
+                    
+                        <div class="content">
+                            <%= artista.descripcion %>
+                        </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
+                <% if (columns % 4 == 0) { %>
+                    </div>
+                    <div class="columns">
+                <% } %>
             <% } %>
 
         </div>
