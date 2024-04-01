@@ -1,0 +1,36 @@
+<%- include('includes/head.ejs', {username: username, permisos: permisos}) %>
+
+<section class="section">
+    <div class="container">
+        <h2 class="title">Arma tu top</h2>
+        <form action="/armar" method="POST">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+            <input type="hidden" name="username" value="<%= username %>" >
+            <div class="field">
+                <label class="label">Nombre del artista / Banda</label>
+                    <div class="control">
+                        <input class="input" type="text" name="nombre">
+                    </div>
+            </div>
+            <div class="field">
+                <label class="label">Imagen</label>
+                    <div class="control">
+                        <input class="input" type="text" name="imagen">
+                    </div>
+            </div>
+            <div class="field">
+                <label class="label">Descripción</label>
+                    <div class="control">
+                        <textarea class="textarea" name="descripcion"></textarea>
+                    </div>
+            </div>
+            <div class="field is-grouped">
+                <div class="control">
+                    <button class="button is-primary">Armar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<%- include('includes/foot.ejs') %>
