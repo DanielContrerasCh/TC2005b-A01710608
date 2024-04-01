@@ -21,6 +21,22 @@ const bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({extended: false}));
 
+const multer = require('multer');
+
+const fileStorage = multer.diskStorage({
+    destination: (request, file, callback) => {
+        //'public/uploadsuploads': Es el directorio del servidor donde se subirán los archivos 
+        callback(null, 'public/uploads');
+    },
+    filename: (request, file, callback) => {
+        //aquí configuramos el nombre que queremos que tenga el archivo en el servidor, 
+        //para que no haya problema si se suben 2 archivos con el mismo nombre concatenamos el timestamp
+        callback(null, file.originalname);
+    },
+});
+
+app.use(multer({ storage: fileStorage }).single('imagen')); 
+
 // Agregar protección contra ataques de CSRF
 const csrf = require('csurf');
 const csrfProtection = csrf();

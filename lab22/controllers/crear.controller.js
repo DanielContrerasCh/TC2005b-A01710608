@@ -11,9 +11,10 @@ exports.get_armar = (request, response, next) => {
 exports.post_armar = (request, response, next) => {
 
     console.log(request.body);
+    console.log(request.file);
 
     const artista = 
-        new Artista(request.body.nombre, request.body.imagen, request.body.descripcion, request.body.username);
+        new Artista(request.body.nombre, request.file.filename, request.body.descripcion, request.body.username);
         
     artista.save().then(([rows, fieldData]) => {
         response.setHeader('Set-Cookie', 'ultimo_artista =' + request.body.nombre + ';HttpOnly');
