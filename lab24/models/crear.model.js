@@ -45,4 +45,8 @@ module.exports = class Artista {
         return db.execute('SELECT * FROM artistaCreado WHERE nombre LIKE ?', ['%' + valor_busqueda + '%']);
     }
 
+    static delete(id) {
+        return db.execute('DELETE FROM artistaCreado WHERE id=?', [id]);
+    }
+
 }

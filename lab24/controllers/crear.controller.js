@@ -41,6 +41,7 @@ exports.get_list = (request, response, next) => {
             ultimo_artista: ultimo_artista,
             username: request.session.username || '',
             permisos: request.session.permisos || [],
+            csrfToken: request.csrfToken(),
         });
     })
     .catch(err => {
@@ -58,8 +59,21 @@ exports.get_root = (request, response, next) => {
 };
 
 exports.get_buscar = (request, response, next) => {
-    Artista.search(request.params.valor_busqueda).then(([rows, fieldData]) => {
+    Artista.search(request.params.valor_busqueda || '').then(([rows, fieldData]) => {
         response.status(200).json({lista: rows});
+    })
+    .catch(err => {
+        console.log(err);
+    });
+}
+
+exports.post_delete = (request, response, next) => {
+    Artista.delete(request.body.id)
+    .then(() => {
+        return Artista.fetch(request.params.artistaCreado_id);
+    })
+    .then(([rows, fieldData]) => {
+        return response.status(200).json({lista: rows});
     })
     .catch(err => {
         console.log(err);

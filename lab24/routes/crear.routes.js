@@ -13,6 +13,9 @@ router.get('/armar', isAuth, canCreate, crearController.get_armar);
 router.post('/armar', isAuth, canCreate, crearController.post_armar);
 
 router.get('/buscar/:valor_busqueda', isAuth, canView, crearController.get_buscar);
+router.get('/buscar/', isAuth, canView, crearController.get_buscar);
+
+router.post('/delete', isAuth, canCreate, crearController.post_delete);
 
 router.get('/:artistaCreado_id', isAuth, canView, crearController.get_list);
 

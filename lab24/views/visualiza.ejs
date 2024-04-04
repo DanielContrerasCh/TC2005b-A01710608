@@ -1,19 +1,26 @@
-<%- include('includes/head.ejs', {username: username, permisos: permisos}) %>
+<%- include('includes/head.ejs', {username: username, permisos: permisos,}) %>
 
 <body class="has-background-link-light">
     <section class="section">
       <div class="container">
         <h1 class="title">Este es tu top de artistas</h1>
         <input class="input is-info mb-6" id="buscar" type="text" placeholder="Busca tus artistas"/>
+        <input type="hidden" id="_csrf" name="_csrf" value="<%= csrfToken %>" >
 
 <div id="respuestaAjax">
+
+    <div id="notificacion">
+        <% if (lista.length < 1) { %>
+            <div class="notification is-info">
+                <button class="delete"></button>
+                No existe la artista
+            </div>
+        <% } %>
+    </div>
+
         <div class="columns">
-            <% if (lista.length < 1) { %>
-                <div class="notification is-info">
-                    <button class="delete"></button>
-                    No existe la artista
-                </div>
-            <% } %>
+            
+
             
             <% let columns = 0; %>
             <% for (let artista of lista) { %>
@@ -26,15 +33,16 @@
                         </figure>
                         </div>
                         <div class="card-content">
-                        <div class="media">
-                            <div class="media-content">
-                            <p class="title is-4"><%= artista.nombre %></p>
+                            <div class="media">
+                                <div class="media-content">
+                                <p class="title is-4"><%= artista.nombre %></p>
+                                </div>
                             </div>
-                        </div>
-                    
-                        <div class="content">
-                            <%= artista.descripcion %>
-                        </div>
+                        
+                            <div class="content">
+                                <%= artista.descripcion %>
+                                <button class="button is-danger" onclick="eliminar(<%= artista.id %>)">Eliminar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -71,18 +79,22 @@
                 console.log(data);
                 let html = '';
 
-                html += `
-                    <div class="columns">
-                `;
+                html += `<div id="notificacion">`;
 
-                if(data.lista.length < 1) {
-                    html += `
+                    if(data.lista.length < 1) {
+                        html += `
                         <div class="notification is-info">
                             <button class="delete"></button>
                             No existe la artista
                         </div>
-                    `;
-                }
+                        `;
+                    }
+
+                html += `</div>`;  
+
+                html += `
+                    <div class="columns">
+                `;
 
                 let columns = 0;
                 for (let artista of data.lista) {
@@ -104,6 +116,7 @@
                         
                                 <div class="content">
                                     ${artista.descripcion}
+                                    <button class="button is-danger" onclick="eliminar(${artista.id})">Eliminar</button>
                                 </div>
                             </div>
                         </div>
@@ -121,13 +134,96 @@
                 html += `</div>`;
 
                 document.getElementById('respuestaAjax').innerHTML = html;
-                //Modificamos el DOM de nuestra página de acuerdo a los datos de la segunda promesa
-                //...
             }).catch((err) => {
                 console.log(err);
             });
         };
 
         document.getElementById('buscar').onkeyup = accion_asincrona;
+
+        const eliminar = (id) => {
+            const csrf = document.getElementById('_csrf').value;
+            console.log(csrf);
+
+            //función que manda la petición asíncrona
+            fetch('/vis/delete/', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json',
+                'csrf-token': csrf
+                },
+                body: JSON.stringify({id: id})
+            }).then(result => {
+                return result.json(); //Regresa otra promesa
+            }).then(data => {
+                console.log(data);
+                let html = '';
+
+                html += `<div id="notificacion">`;
+
+                    if(data.lista.length < 1) {
+                        html += `
+                            <div class="notification is-info">
+                                <button class="delete"></button>
+                                No existe la artista
+                        </div>
+                        `;
+                    }
+
+                html += `</div>`; 
+
+                html += `
+                    <div class="columns">
+                `; 
+
+                let columns = 0;
+                for (let artista of data.lista) {
+                    columns++
+                    html += `
+                        <div class="column">
+                            <div class="card">
+                                <div class="card-image">
+                                    <figure class="image is-4by3">
+                                        <img src="uploads/${artista.imagen}" alt="Imagen de ${artista.nombre}">
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <div class="media">
+                                        <div class="media-content">
+                                            <p class="title is-4">${artista.nombre}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="content">
+                                        ${artista.descripcion}
+                                        <button class="button is-danger" onclick="eliminar(${artista.id})">Eliminar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    if (columns % 4 == 0) {
+                    html += `
+                        </div>
+                        <div class="columns">
+                    `;
+                    }
+                }
+
+                html += `</div>`;
+
+                document.getElementById('respuestaAjax').innerHTML = html;
+                document.getAnimations('notificacion').innerHTML = `
+                <div class="notification is-info">
+                    <button class="delete"></button>
+                    La construcción fue eliminada
+                </div>
+                `;
+            }).catch(err => {
+            console.log(err);
+            });
+
+        }
     </script>
     <%- include('includes/foot.ejs') %>
