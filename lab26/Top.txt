@@ -1,0 +1,20 @@
+
+artista 1:
+inhaler
+inhaler.jpeg
+undefined
+
+artista 1:
+inhaler
+NaN-inhaler.jpeg
+undefined
+
+artista 1:
+arctic monkeys
+1712074969827-arctic.jpeg
+undefined
+
+artista 1:
+galo
+1712678777161-Captura de pantalla 2023-12-28 154332.png
+undefined
