@@ -18,7 +18,7 @@ exports.post_armar = (request, response, next) => {
         
     artista.save().then(([rows, fieldData]) => {
         response.setHeader('Set-Cookie', 'ultimo_artista =' + request.body.nombre + ';HttpOnly');
-        response.redirect('/vis');
+        response.redirect('/armar/vis');
     })
     .catch(err => {
         console.log(err);
@@ -49,13 +49,6 @@ exports.get_list = (request, response, next) => {
     });
 
 
-};
-
-exports.get_root = (request, response, next) => {
-    response.render(`musica`, {
-        username: request.session.username || '',
-        permisos: request.session.permisos || [],
-    })
 };
 
 exports.get_buscar = (request, response, next) => {

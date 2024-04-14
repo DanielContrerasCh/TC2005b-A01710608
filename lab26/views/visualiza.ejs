@@ -29,7 +29,7 @@
                     <div class="card">
                         <div class="card-image">
                         <figure class="image is-4by3">
-                            <img src="uploads/<%= artista.imagen %>" alt="Imagen de <%= artista.nombre %>">
+                            <img src="/uploads/<%= artista.imagen %>" alt="Imagen de <%= artista.nombre %>">
                         </figure>
                         </div>
                         <div class="card-content">
@@ -67,7 +67,7 @@
             const valor_busqueda = document.getElementById('buscar').value;
             console.log(valor_busqueda)
             //función que manda la petición asíncrona
-            fetch('/vis/buscar/' + valor_busqueda, {
+            fetch('armar/vis/buscar/' + valor_busqueda, {
                 method: 'GET',
                 headers: {
                 'Content-Type': 'application/json',
@@ -104,7 +104,7 @@
                         <div class="card">
                             <div class="card-image">
                                 <figure class="image is-4by3">
-                                    <img src="uploads/${artista.imagen}" alt="Imagen de ${artista.nombre}">
+                                    <img src="/uploads/${artista.imagen}" alt="Imagen de ${artista.nombre}">
                                 </figure>
                             </div>
                             <div class="card-content">
@@ -146,7 +146,7 @@
             console.log(csrf);
 
             //función que manda la petición asíncrona
-            fetch('/vis/delete/', {
+            fetch('/armar/vis/delete/', {
                 method: 'POST',
                 headers: {
                 'Content-Type': 'application/json',
@@ -184,7 +184,7 @@
                             <div class="card">
                                 <div class="card-image">
                                     <figure class="image is-4by3">
-                                        <img src="uploads/${artista.imagen}" alt="Imagen de ${artista.nombre}">
+                                        <img src="/uploads/${artista.imagen}" alt="Imagen de ${artista.nombre}">
                                     </figure>
                                 </div>
                                 <div class="card-content">

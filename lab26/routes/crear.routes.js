@@ -6,19 +6,16 @@ const canCreate = require('../util/can-create');
 
 const crearController = require('../controllers/crear.controller');
 
-router.get('/', isAuth, canView, crearController.get_list);
-
-router.get('/armar', isAuth, canCreate, crearController.get_armar);
-
-router.post('/armar', isAuth, canCreate, crearController.post_armar);
+router.get('/vis', isAuth, canView, crearController.get_list);
 
 router.get('/buscar/:valor_busqueda', isAuth, canView, crearController.get_buscar);
 router.get('/buscar/', isAuth, canView, crearController.get_buscar);
 
-router.post('/delete', isAuth, canCreate, crearController.post_delete);
+router.post('/vis/delete', isAuth, canCreate, crearController.post_delete);
 
-router.get('/:artistaCreado_id', isAuth, canView, crearController.get_list);
+router.get('/vis/:artistaCreado_id', isAuth, canView, crearController.get_list);
 
-router.get('/', isAuth, crearController.get_root);
+router.get('/', isAuth, canCreate, crearController.get_armar);
+router.post('/', isAuth, canCreate, crearController.post_armar);
 
 module.exports = router;
